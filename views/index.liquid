@@ -6,13 +6,13 @@
         <h2>{{ person.name }}</h2>
 
         {% if person.mugshot %}
-          <img src="https://fdnd.directus.app/assets/{{  person.mugshot }}?width=500">
+          <img class="foto" src="https://fdnd.directus.app/assets/{{  person.mugshot }}?width=500">
         {% else %}
           <img src="/image-removebg-preview.png">
         {% endif %}
 
-        <p>{{ person.nickname }}</p>
-        <p>{{ person.birthdate }}</p>
+        <p class="nickname" >{{ person.nickname }}</p>
+        <p class="geboortedatum" >{{ person.birthdate }}</p>
         <p class="residency">{{ person.residency | default: 'Woonplaats onbekend' }}</p>
 
         {% if person.fav_spotify_track %}
