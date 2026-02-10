@@ -54,10 +54,12 @@ h1 {
 
 h2 {
     margin: 0;
+    padding-left: 1em;
     grid-area: naam;
 }
 
 p {
+    padding-left: 1em;
     margin: 0;
 }
 
