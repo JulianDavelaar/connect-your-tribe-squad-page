@@ -4,13 +4,13 @@
     {% for person in persons %}
       <article>
         <h2>{{ person.name }}</h2>
-
-        {% if person.mugshot %}
-          <img class="foto" src="https://fdnd.directus.app/assets/{{  person.mugshot }}?width=500">
-        {% else %}
-          <img src="/image-removebg-preview.png">
-        {% endif %}
-
+    <div class="wrapper">
+          {% if person.mugshot %}
+            <img src="https://fdnd.directus.app/assets/{{  person.mugshot }}?width=500">
+          {% else %}
+            <img src="/image-removebg-preview.png">
+          {% endif %}
+    </div>
         <p class="nickname" >{{ person.nickname }}</p>
         <p class="geboortedatum" >{{ person.birthdate }}</p>
         <p class="residency">{{ person.residency | default: 'Woonplaats onbekend' }}</p>

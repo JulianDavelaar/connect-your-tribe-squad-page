@@ -8,6 +8,7 @@ body {
     grid-auto-flow: column;
     grid-auto-columns: 250px;
     overflow: auto;
+    gap: 5px;
 }
 
 article{
@@ -16,6 +17,21 @@ article{
     "foto"
     "naam"
     "nickname";
+}
+
+.wrapper {
+    position: relative;
+     max-height: 600px;
+}
+
+.wrapper::after{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent 33%);
 }
 
 img {
@@ -32,8 +48,19 @@ h1 {
     margin-bottom: -100px;
     font-size: 4em;
     margin-top: 0;
+    position: relative; /* position en z-index ander gaat h1 door gradient naar achter*/
+    z-index: 100;
 }
 
 h2 {
+    margin: 0;
     grid-area: naam;
 }
+
+p {
+    margin: 0;
+}
+
+.residency{
+        text-align: right;
+    }
