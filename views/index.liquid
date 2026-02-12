@@ -1,18 +1,54 @@
 {% render 'partials/head.liquid', title: 'Squad page' %}
 
+<h1>SQUAD</h1>
+
+<div class="sorteer">
+  <select name="Leeftijd">
+    <option value="">Leeftijd</option>
+    <option value="oud-jong"> Oud → Jong </option>
+    <option value="jong-oud"> Jong → Oud </option>
+  </select>
+
+  <select name="naam">
+    <option value="">Naam</option>
+    <option value="A-Z"> A → Z </option>
+    <option value="Z-A"> Z → A </option>
+  </select>
+
+    <select name="Leeftijd">
+    <option value="">Leeftijd</option>
+    <option value="oud-jong"> Oud → Jong </option>
+    <option value="jong-oud"> Jong → Oud </option>
+  </select>
+
+    <select name="Leeftijd">
+    <option value="">Leeftijd</option>
+    <option value="oud-jong"> Oud → Jong </option>
+    <option value="jong-oud"> Jong → Oud </option>
+  </select>
+</div>
+
   <div class="persons">
     {% for person in persons %}
       <article>
         <h2>{{ person.name }}</h2>
     <div class="wrapper">
+
           {% if person.mugshot %}
             <img src="https://fdnd.directus.app/assets/{{  person.mugshot }}?width=500">
           {% else %}
-            <img src="/image-removebg-preview.png">
+            <img src="/smeagle.jpeg">
           {% endif %}
+
     </div>
         <p class="nickname" >{{ person.nickname }}</p>
+
+        {% if person.birthdate %}
         <p class="geboortedatum" >{{ person.birthdate }}</p>
+        {% else %}
+          <p>leeftijd Onbekend</p>
+        {% endif %}
+
         <p class="residency">{{ person.residency | default: 'Woonplaats onbekend' }}</p>
 
         {% if person.fav_spotify_track %}
