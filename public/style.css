@@ -2,32 +2,6 @@ body {
   font-family: "gajraj one", serif;
 }
 
-.sorteer {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  gap: 20em;
-  margin-bottom: -50px;
-  padding-top: 25px;
-  position: relative;
-  z-index: 100;
-}
-
-select {
-  background-color: black;
-  opacity: 50%;
-  color: white;
-  border-radius: 30px;
-  text-align: center;
-  font-size: 18px;
-  padding: 0 0.5em 0 0.5em;
-}
-option {
-  opacity: 50%;
-  border-radius: 25%;
-}
-
 h1 {
   text-align: center;
   opacity: 50%;
