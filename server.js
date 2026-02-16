@@ -117,3 +117,27 @@ app.listen(app.get("port"), function () {
   // Toon een bericht in de console en geef het poortnummer door
   console.log(`Application started on http://localhost:${app.get("port")}`);
 });
+
+
+
+// Dit voeg je toe aan server.js
+
+// 1. Maak een lege array aan
+let messagesArray = []
+
+// 2. Luister naar GET requests op /berichten
+app.get('/berichten', async function (request, response) {
+  // Render meteen de messages view, en geef de messages array mee
+  response.render('messages.liquid', {
+    messages: messagesArray
+  })
+})
+
+// 3. Luister naar POST requests, ook op /berichten
+app.post('/berichten', async function (request, response) {
+  // Voeg de inhoud van het tekstveld toe aan de array
+  messagesArray.push(request.body.message)
+  // En stuur de browser terug naar /berichten, waar die een GET request uitvoert
+  // De browser komt hierdoor dus weer “terug” bij 2, waardoor de view opnieuw gerenderd wordt
+  response.redirect(303, '/berichten')
+})

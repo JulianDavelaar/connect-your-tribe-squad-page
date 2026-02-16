@@ -1,0 +1,15 @@
+{% render 'partials/head.liquid', title: 'Squad page' %}
+
+{% for message in messages %}
+   <p>{{ message }}</p>
+{% endfor %}
+
+<form method="POST" action="/berichten">
+   <label>
+     Nieuw bericht:
+     <input type="text" name="message" required>
+   </label>
+   <button type="submit">Voeg toe!</button>
+</form>
+
+{% render 'partials/foot.liquid', squads: squads %}
