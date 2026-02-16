@@ -33,8 +33,9 @@ img {
   object-position: center;
   width: 100%;
   height: 600px;
-  grid-area: foto;
+  grid-area: foto; 
 }
+/* hierboven grid area van CSS Sanne 10-02 */
 
 .wrapper {
   position: relative;
