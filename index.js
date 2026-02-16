@@ -5,14 +5,7 @@ app.get("/", async function (request, response) {
     fields: "*,squads.*",
   };
 
-  // Sorteer op leeftijd
-  if (sortOption === "-birthdate") {
-    params.sort = "-birthdate"; // Oud → Jong
-  } else if (sortOption === "birthdate") {
-    params.sort = "birthdate"; // Jong → Oud
-  } else {
-    params.sort = "name"; // Standaard
-  }
+ 
 
   const personResponse = await fetch(
     "https://fdnd.directus.app/items/person/?" + new URLSearchParams(params),

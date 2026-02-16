@@ -1,10 +1,12 @@
 {% render 'partials/head.liquid', title: 'Squad page' %}
 
+<header>
+  <nav>
+    <a href="/?sort=birthdate">Jong → Oud</a>
 <h1>SQUAD</h1>
+</header>
 
-
-
-  <div class="persons">
+  <section class="persons">
 
     {% for person in persons %}
       <article>
@@ -33,29 +35,29 @@
 
         <p class="residency">{{ person.residency | default: 'Woonplaats onbekend' }}</p>
 
+      <div class="spotify">
+        {% if person.fav_spotify_track %}
+          
+          {% assign spotify_embed = person.fav_spotify_track 
+            | replace: "https://open.spotify.com/", "https://open.spotify.com/embed/" %}
+          <iframe 
+            src="{{ spotify_embed }}" 
+            width="100%" 
+            height="152" 
+            frameborder="0" 
+            allowfullscreen 
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+          </iframe>
+        {% else %}
+          <h2>Geen track</h2>
+        {% endif %}
+      </div>
 
-{% if person.fav_spotify_track %}
-  
-  {% assign spotify_embed = person.fav_spotify_track 
-    | replace: "https://open.spotify.com/", "https://open.spotify.com/embed/" %}
-  <iframe 
-    src="{{ spotify_embed }}" 
-    width="100%" 
-    height="152" 
-    frameborder="0" 
-    allowfullscreen 
-    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-  </iframe>
-{% else %}
-  <h2>Geen track</h2>
-{% endif %}
+  </article>
 
- 
+ {% endfor %}
 
-
-      </article>
-    {% endfor %}
-  </div>
+</section>
 
 
 {% render 'partials/foot.liquid', squads: squads %}
